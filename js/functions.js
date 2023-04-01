@@ -1,40 +1,31 @@
 const isVeryBig = (string, length) =>
-string.length <= length ? true:false;
-console.log(isVeryBig('проверяемая строка', 20));
-console.log(isVeryBig('проверяемая строка', 18));
-console.log(isVeryBig('проверяемая строка', 10));
-
-
+  string.length <= length ? true : false;
 
 const isPalindrome = (string) =>{
-	let lowString = string.toLowerCase().replace(/\s/g, '');
-		for (let i = 0; i <= (lowString.length + 1) /2; i++)    {
-    if (lowString[i] !== lowString[lowString.length - 1 - i])
-    {
-    return false;
-    }
+  let lowString = string.toLowerCase().replace(/\s/g, '');
+		for (let i = 0; i <= (lowString.length + 1) / 2; i++) {
+    if (lowString[i] !== lowString[lowString.length - 1 - i]) {
+      return false;
+      }
   }
 return true;
-}
-
+  };
 
 const extractNumbers = (string) => {
-let onlyNumbers = ' ';
-let isFirstZero = true;
-for (let i = 0; i <= string.length - 1; i++) {
-	if (string[i] >= 0) {
-  if (isFirstZero&&string[i] === '0') {
-  isFirstZero = true;
+  let onlyNumbers = ' ';
+  let isFirstZero = true;
+  for (let i = 0; i <= string.length - 1; i++) {
+    if (string[i] >= 0) {
+      if (isFirstZero && string[i] === '0') {
+        isFirstZero = true;
       } else {
-      isFirstZero = false;
-      onlyNumbers += string[i];
-		  }
+        isFirstZero = false;
+        onlyNumbers += string[i];
+        }
+    }
   }
-}
 return onlyNumbers;
-}
-
-
+};
 
 
 function isSymbolsEnough(string, minLength, addString) {
@@ -42,13 +33,13 @@ function isSymbolsEnough(string, minLength, addString) {
     return string;
   }
 
-  let newString = "";
-  let remainingChars = minLength - string.length;
+  let newString = '';
+  const remainingChars = minLength - string.length;
 
   for (let i = 0; i < remainingChars; i++) {
-    let charToAdd = addString[(addString.length+i) % addString.length];
+    const charToAdd = addString[(addString.length + i) % addString.length];
     newString += charToAdd;
   }
   string = newString + string;
   return string;
-}
+};
