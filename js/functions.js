@@ -1,7 +1,7 @@
 const isVeryBig = (string, length) =>
   string.length <= length;
 const isPalindrome = (string) =>{
-  let lowString = string.toLowerCase().replace(/\s/g, '');
+  const lowString = string.toLowerCase().replace(/\s/g, '');
   for (let i = 0; i <= (lowString.length + 1) / 2; i++) {
     if (lowString[i] !== lowString[lowString.length - 1 - i]) {
       return false;
