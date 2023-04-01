@@ -1,15 +1,14 @@
 const isVeryBig = (string, length) =>
-  string.length <= length ? true : false;
-
+  string.length <= length;
 const isPalindrome = (string) =>{
   let lowString = string.toLowerCase().replace(/\s/g, '');
-		for (let i = 0; i <= (lowString.length + 1) / 2; i++) {
+  for (let i = 0; i <= (lowString.length + 1) / 2; i++) {
     if (lowString[i] !== lowString[lowString.length - 1 - i]) {
       return false;
-      }
+    }
   }
-return true;
-  };
+  return true;
+};
 
 const extractNumbers = (string) => {
   let onlyNumbers = ' ';
@@ -21,10 +20,10 @@ const extractNumbers = (string) => {
       } else {
         isFirstZero = false;
         onlyNumbers += string[i];
-        }
+      }
     }
   }
-return onlyNumbers;
+  return onlyNumbers;
 };
 
 
@@ -42,4 +41,4 @@ function isSymbolsEnough(string, minLength, addString) {
   }
   string = newString + string;
   return string;
-};
+}
