@@ -1,5 +1,9 @@
 const isVeryBig = (string, length) =>
   string.length <= length;
+
+isVeryBig('eqtyi', 21);
+
+
 const isPalindrome = (string) =>{
   const lowString = string.toLowerCase().replace(/\s/g, '');
   for (let i = 0; i <= (lowString.length + 1) / 2; i++) {
@@ -9,6 +13,8 @@ const isPalindrome = (string) =>{
   }
   return true;
 };
+isPalindrome('3142');
+
 
 const extractNumbers = (string) => {
   let onlyNumbers = ' ';
@@ -25,7 +31,7 @@ const extractNumbers = (string) => {
   }
   return onlyNumbers;
 };
-
+extractNumbers('2');
 
 function isSymbolsEnough(string, minLength, addString) {
   if (string.length >= minLength) {
@@ -42,3 +48,4 @@ function isSymbolsEnough(string, minLength, addString) {
   string = newString + string;
   return string;
 }
+isSymbolsEnough('asfaf', 12, 'aaz');
