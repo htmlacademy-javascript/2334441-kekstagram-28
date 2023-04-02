@@ -134,25 +134,18 @@ for (let i = 0; i < 25; i++) {
   users.push(`${name} ${lastName}`);
 }
 
-const getRandomIdArray = (count) => {
-  const newArray = [];
-  let newId = getRandomInteger(1, count);
-
-  while (newArray.length < count) {
-    if (newArray.includes(newId)) {
-      newId = getRandomInteger(1, count);
-    } else {
-      newArray.push(newId);
-    }
+let lastGeneratedId = 0;
+const GeneratedId = () => {
+  if (lastGeneratedId < 25) {
+    lastGeneratedId += 1;
+  } else {
+    lastGeneratedId = lastGeneratedId - 25 + 1;
   }
-
-  return newArray;
+  return lastGeneratedId;
 };
 
-const idArray = getRandomIdArray(PHOTOS_COUNT);
-
 const createComment = () => ({
-  id :getRandomArrayElement(idArray) ,
+  id : GeneratedId() ,
   avatar : getRandomArrayElement(AVATARS),
   message : getRandomArrayElement(MESSAGES),
   name : getRandomArrayElement(users)
@@ -162,11 +155,11 @@ const createComment = () => ({
 const similarComments = Array.from({length: DIFFERENT_COMMENTS}, createComment);
 
 const createPhoto = () => ({
-  id : getRandomArrayElement(idArray),
-  URL: `photos/${getRandomArrayElement(idArray)}.jpg`,
+  id : GeneratedId(),
+  URL: `photos/${GeneratedId()}.jpg`,
   likes : getRandomInteger(MIN_LIKES, MAX_LIKES),
   description : getRandomArrayElement(DESCRIPTIONS),
-  comments : getRandomArrayElement(similarComments)
+  comments : similarComments[lastGeneratedId - 1]
 });
 
 const similarPhotos = Array.from({length:PHOTOS_COUNT}, createPhoto);
