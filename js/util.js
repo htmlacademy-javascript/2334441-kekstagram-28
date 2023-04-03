@@ -1,5 +1,5 @@
 let lastGeneratedId = 0;
-const GeneratedId = () => {
+const generatedId = () => {
   if (lastGeneratedId < 25) {
     lastGeneratedId += 1;
   } else {
@@ -17,7 +17,4 @@ const getRandomInteger = (a, b) => {
 
 const getRandomArrayElement = (elements) => elements[getRandomInteger(0, elements.length - 1)];
 
-export {getRandomInteger};
-export {getRandomArrayElement};
-export {GeneratedId};
-export {lastGeneratedId};
+export {getRandomInteger, getRandomArrayElement, generatedId, lastGeneratedId};
