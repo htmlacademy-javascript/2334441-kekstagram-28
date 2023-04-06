@@ -1,20 +1,9 @@
-import {getRandomInteger} from './util.js';
-
 const PHOTOS_COUNT = 25;
 const MIN_LIKES = 15;
 const MAX_LIKES = 200;
 const DIFFERENT_COMMENTS = 25;
 
-const AVATARS = [
-  'img/avatar-1.svg',
-  'img/avatar-2.svg',
-  'img/avatar-3.svg',
-  'img/avatar-4.svg',
-  'img/avatar-5.svg',
-  'img/avatar-6.svg'
-];
-
-const MALE_FIRST_NAMES = [
+export const MALE_FIRST_NAMES = [
   'Алексей',
   'Дмитрий',
   'Иван',
@@ -32,7 +21,7 @@ const MALE_FIRST_NAMES = [
   'Роман'
 ];
 
-const FEMALE_FIRST_NAMES = [
+export const FEMALE_FIRST_NAMES = [
   'Анна',
   'Елена',
   'Мария',
@@ -47,7 +36,7 @@ const FEMALE_FIRST_NAMES = [
   'Вероника'
 ];
 
-const MALE_LAST_NAMES = [
+export const MALE_LAST_NAMES = [
   'Иванов',
   'Петров',
   'Сидоров',
@@ -65,7 +54,7 @@ const MALE_LAST_NAMES = [
   'Григорьев'
 ];
 
-const FEMALE_LAST_NAMES = [
+export const FEMALE_LAST_NAMES = [
   'Иванова',
   'Петрова',
   'Сидорова',
@@ -83,7 +72,7 @@ const FEMALE_LAST_NAMES = [
   'Григорьева'
 ];
 
-const MESSAGES = [
+export const MESSAGES = [
   'Всё отлично!',
   'В целом всё неплохо. Но не всё.',
   'Когда вы делаете фотографию, хорошо бы убирать палец из кадра. В конце концов это просто непрофессионально.',
@@ -92,7 +81,7 @@ const MESSAGES = [
   'Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!'
 ];
 
-const DESCRIPTIONS = [
+export const DESCRIPTIONS = [
   'Золотистый закат над океаном, отражения на воде.',
   'Молодая пара счастлива на пляже в теплый день.',
   'Живописный горный пейзаж в солнечный день.',
@@ -110,6 +99,13 @@ const DESCRIPTIONS = [
   'Желтые подсолнухи на фоне голубого неба и белых облаков.'
 ];
 
+const getRandomInteger = (a, b) => {
+  const lower = Math.ceil(Math.min(a, b));
+  const upper = Math.floor(Math.max(a, b));
+  const result = Math.random() * (upper - lower + 1) + lower;
+  return Math.floor(result);
+};
+
 const USERS = [];
 
 for (let i = 0; i < 25; i++) {
@@ -126,11 +122,21 @@ for (let i = 0; i < 25; i++) {
   USERS.push(`${name} ${lastName}`);
 }
 
+export const ALT_CAPTION = [
+  'Здесь должна была быть картинка, но кот решил провести провода своим образом...',
+  'Кажется, кто-то украл картинку, или она ушла в отпуск без нотариальной доверенности.',
+  'Ой, изображение потерялось где-то в киберпространстве. Можете помочь его найти?',
+  'Картинка не загрузилась, потому что она решила погулять на свежем воздухе.',
+  'Котенок играл с проводами и изображение не смогло пройти по ним без последствий...',
+  'Изображение решило сделать перерыв и отправиться в кино. Очень надеемся, что ему понравится фильм!',
+  'Ой, кажется, что-то сломалось на пути к картинке. Надеемся, что ремонт не займет много времени.',
+  'К сожалению, изображение попало в забастовку. Сейчас мы активно работаем над улаживанием конфликта.',
+  'Картинка решила совершить экскурсию по всему интернету, но к сожалению, потеряла путь домой.',
+  'Ой, кажется, мы забыли заплатить за интернет, и теперь картинки нам отказываются давать взаймы.',
+];
+
 export {PHOTOS_COUNT};
 export {MIN_LIKES};
 export {MAX_LIKES};
-export {MESSAGES};
 export {DIFFERENT_COMMENTS};
-export {DESCRIPTIONS};
 export {USERS};
-export {AVATARS};
