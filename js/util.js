@@ -27,6 +27,7 @@ export const createComment = () => ({
   name : getRandomArrayElement(USERS)
 });
 
+
 export const similarComments = Array.from({length: DIFFERENT_COMMENTS}, createComment);
 
 export const createPhoto = () => ({
