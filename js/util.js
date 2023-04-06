@@ -1,4 +1,4 @@
-import {PHOTOS_COUNT, MIN_LIKES, MAX_LIKES, MESSAGES} from './constants.js';
+import {PHOTOS_COUNT, MIN_LIKES, MAX_LIKES, MESSAGES, MAX_COMMENTS} from './constants.js';
 import {USERS, DESCRIPTIONS, DIFFERENT_COMMENTS} from './constants.js';
 
 let lastGeneratedId = 0;
@@ -35,7 +35,7 @@ export const createPhoto = () => ({
   url: `photos/${generatedId()}.jpg`,
   likes : getRandomInteger(MIN_LIKES, MAX_LIKES),
   description : getRandomArrayElement(DESCRIPTIONS),
-  comments : similarComments[lastGeneratedId - 1]
+  comments : similarComments.slice(getRandomInteger(1, MAX_COMMENTS))
 });
 
 export const similarPhotos = Array.from({length:PHOTOS_COUNT}, createPhoto);
