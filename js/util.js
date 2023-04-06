@@ -1,5 +1,5 @@
 import {PHOTOS_COUNT, MIN_LIKES, MAX_LIKES, MESSAGES} from './constants.js';
-import {USERS, AVATARS, DESCRIPTIONS, DIFFERENT_COMMENTS} from './constants.js';
+import {USERS, DESCRIPTIONS, DIFFERENT_COMMENTS} from './constants.js';
 
 let lastGeneratedId = 0;
 export const generatedId = () => {
@@ -22,7 +22,7 @@ export const getRandomArrayElement = (elements) => elements[getRandomInteger(0, 
 
 export const createComment = () => ({
   id : generatedId() ,
-  avatar : getRandomArrayElement(AVATARS),
+  avatar :`img/avatar-${getRandomInteger(1, 6)}.svg`,
   message : getRandomArrayElement(MESSAGES),
   name : getRandomArrayElement(USERS)
 });
@@ -31,7 +31,7 @@ export const similarComments = Array.from({length: DIFFERENT_COMMENTS}, createCo
 
 export const createPhoto = () => ({
   id : generatedId(),
-  URL: `photos/${generatedId()}.jpg`,
+  url: `photos/${generatedId()}.jpg`,
   likes : getRandomInteger(MIN_LIKES, MAX_LIKES),
   description : getRandomArrayElement(DESCRIPTIONS),
   comments : similarComments[lastGeneratedId - 1]

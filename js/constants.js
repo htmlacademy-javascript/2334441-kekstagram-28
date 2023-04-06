@@ -3,14 +3,6 @@ const MIN_LIKES = 15;
 const MAX_LIKES = 200;
 const DIFFERENT_COMMENTS = 25;
 
-export const AVATARS = [
-  'img/avatar-1.svg',
-  'img/avatar-2.svg',
-  'img/avatar-3.svg',
-  'img/avatar-4.svg',
-  'img/avatar-5.svg',
-  'img/avatar-6.svg'
-];
 
 export const MALE_FIRST_NAMES = [
   'Алексей',
