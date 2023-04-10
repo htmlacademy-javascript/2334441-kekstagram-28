@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import {PHOTOS_COUNT, MIN_LIKES, MAX_LIKES, MESSAGES, MAX_COMMENTS} from './constants.js';
 import {USERS, DESCRIPTIONS, DIFFERENT_COMMENTS} from './constants.js';
 
@@ -38,5 +39,8 @@ export const createPhoto = () => ({
   comments : similarComments.slice(getRandomInteger(1, MAX_COMMENTS))
 });
 
-export const similarPhotos = Array.from({length:PHOTOS_COUNT}, createPhoto);
+export const isEscapeKey = (evt) => evt.key === 'Escape';
+
+export const similarPhotos = () => Array.from({length:PHOTOS_COUNT}, createPhoto);
+
 export {lastGeneratedId};

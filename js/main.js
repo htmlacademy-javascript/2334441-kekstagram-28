@@ -1,4 +1,4 @@
-import {renderThumbnails} from './thumbnail.js';
-import {similarPhotos} from './util.js';
-
-renderThumbnails(similarPhotos);
+import './util.js';
+import './full_image.js';
+import './thumbnail.js';
+import './constants.js';
