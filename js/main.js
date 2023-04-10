@@ -1,6 +1,4 @@
-//import {renderThumbnails} from './thumbnail.js';
-import {similarPhotos} from './util.js';
-import {renderPictureModal} from './picture_modal.js';
-//renderThumbnails(similarPhotos);
-
-renderPictureModal(similarPhotos);
+import './util.js';
+import './full_image.js';
+import './thumbnail.js';
+import './constants.js';
