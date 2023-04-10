@@ -38,5 +38,7 @@ export const createPhoto = () => ({
   comments : similarComments.slice(getRandomInteger(1, MAX_COMMENTS))
 });
 
+export const isEscapeKey = (evt) => evt.keyCode === 27;
+
 export const similarPhotos = Array.from({length:PHOTOS_COUNT}, createPhoto);
 export {lastGeneratedId};
