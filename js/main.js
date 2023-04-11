@@ -1,10 +1,8 @@
 import './util.js';
-import './full_image.js';
-import './thumbnail.js';
-import './constants.js';
-import { similarPhotos } from './util.js';
-import { renderCards } from './full_image.js';
-import { PHOTOS_COUNT } from './constants.js';
-
-
-renderCards(similarPhotos(PHOTOS_COUNT));
+import './create-miniatures.js';
+import './render-big-pic.js';
+import './form.js';
+import './effects.js';
+import './scale.js';
+import './api.js';
+import './filters.js';
