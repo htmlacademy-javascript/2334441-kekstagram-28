@@ -1,4 +1,4 @@
-import { renderModal } from './modal_image.js';
+import {renderModal} from './modal_image.js';
 
 const picturesContainer = document.querySelector('.pictures');
 const pictureTemplate = document.querySelector('#picture').content
