@@ -9,21 +9,21 @@ const RERENDER_DELAY = 500;
 const COUNT_RENDER_RANDOM = 10;
 
 const Filters = {
-  DEFAULT: () => originalData,
-  RANDOM: (array) => {
-    const randomIds = getRandomNumsArray(COUNT_RENDER_RANDOM, array.length - 1);
-    const newList = [];
+  isDefault: () => originalData,
+  isRandom: (arrays) => {
+    const randomIds = getRandomNumsArray(COUNT_RENDER_RANDOM, arrays.length - 1);
+    const newLists = [];
 
     randomIds.forEach((id) => {
-      const newEntry = array.find((entry) => entry.id === id);
-      newList.push(newEntry);
+      const newEntry = arrays.find((entry) => entry.id === id);
+      newLists.push(newEntry);
     });
-    return newList;
+    return newLists;
   },
-  DISCUSSED: (array) => array.slice().sort(compareCommentsTotal)
+  DISCUSSED: (arrays) => arrays.slice().sort(compareCommentsTotal)
 };
 
-let currentFilter = Filters.DEFAULT;
+let currentFilter = Filters.isDefault;
 
 const showFilters = () => imgFilters.classList.remove('img-filters--inactive');
 
