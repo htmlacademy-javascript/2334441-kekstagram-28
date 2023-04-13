@@ -117,9 +117,8 @@ function closeBigPicture() {
 pictures.addEventListener('click', (evt) => {
   if(evt.target.closest('.picture')) {
     const url = String(evt.target.src).slice(String(evt.target.src).indexOf('photos'));
-    const thisPost = postsList.find((post) => post.url === url);
+    const thisPost = postsList.filter((post) => post.url === url)[0];
     commentsArray = thisPost.comments;
     openBigPicture(thisPost);
   }
 });
-

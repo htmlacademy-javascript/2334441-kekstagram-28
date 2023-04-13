@@ -15,31 +15,6 @@ function checkStringLength(string, maxLength) {
 
 checkStringLength('проверяемая строка', 20);
 
-function addToString(startString, endStringLength, addSymbol) {
-  if (startString.length < endStringLength) {
-    const difLength = endStringLength - startString.length;
-    const addStringLength = addSymbol.length;
-    let endString;
-
-    if (addStringLength <= difLength) {
-      endString = addSymbol + startString;
-      if (endString.length < endStringLength) {
-        addToString(endString, endStringLength, addSymbol);
-      } else {
-        return endString;
-      }
-    } else {
-      const newAddString = addSymbol.slice(0, difLength);
-      endString = newAddString + startString;
-      return endString;
-    }
-  } else {
-    return startString;
-  }
-}
-
-addToString('1', 2, '0');
-
 const isEscapeKey = (evt) => evt.key === 'Escape';
 
 function checkSameSubstring (value) {

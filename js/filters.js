@@ -5,12 +5,12 @@ import { getRandomNumsArray, debounce } from './util.js';
 const imgFilters = document.querySelector('.img-filters');
 const filtersBtns = imgFilters.querySelectorAll('.img-filters__button');
 
-const RERENDER_DELAY = 500;
+const RERENDER_DELAY = 50;
 const COUNT_RENDER_RANDOM = 10;
 
 const Filters = {
-  isDefault: () => originalData,
-  isRandom: (arrays) => {
+  ISDEFAULT: () => originalData,
+  ISRANDOM: (arrays) => {
     const randomIds = getRandomNumsArray(COUNT_RENDER_RANDOM, arrays.length - 1);
     const newLists = [];
 
@@ -20,10 +20,10 @@ const Filters = {
     });
     return newLists;
   },
-  DISCUSSED: (arrays) => arrays.slice().sort(compareCommentsTotal)
+  ISDISCUSSED: (array) => array.slice().sort(compareCommentsTotal)
 };
 
-let currentFilter = Filters.isDefault;
+let currentFilter = Filters.ISDEFAULT;
 
 const showFilters = () => imgFilters.classList.remove('img-filters--inactive');
 
