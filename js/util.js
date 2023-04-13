@@ -43,9 +43,9 @@ const showAlert = (message) => {
   }, ALERT_SHOW_TIME);
 };
 
-function debounce(callback, timeoutDelay = 500) {
-  let timeoutId;
 
+function debounce(callback, timeoutDelay) {
+  let timeoutId;
   return (...rest) => {
     clearTimeout(timeoutId);
     timeoutId = setTimeout(() => callback.apply(this, rest), timeoutDelay);

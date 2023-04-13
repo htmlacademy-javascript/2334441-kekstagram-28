@@ -5,7 +5,7 @@ import { getRandomNumsArray, debounce } from './util.js';
 const imgFilters = document.querySelector('.img-filters');
 const filtersBtns = imgFilters.querySelectorAll('.img-filters__button');
 
-const RERENDER_DELAY = 50;
+const RERENDER_DELAY = 500;
 const COUNT_RENDER_RANDOM = 10;
 
 const Filters = {
