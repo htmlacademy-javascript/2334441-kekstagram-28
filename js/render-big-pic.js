@@ -114,6 +114,7 @@ function closeBigPicture() {
   commentsLoader.removeEventListener('click', renderAllComments);
 }
 
+
 pictures.addEventListener('click', (evt) => {
   if(evt.target.closest('.picture__img')) {
     const url = String(evt.target.src).slice(String(evt.target.src).indexOf('photos'));
