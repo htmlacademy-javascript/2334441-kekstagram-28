@@ -5,7 +5,7 @@ import { getRandomNumsArray, debounce } from './util.js';
 const imgFilters = document.querySelector('.img-filters');
 const filtersBtns = imgFilters.querySelectorAll('.img-filters__button');
 
-const RERENDER_DELAY = 501;
+const RERENDER_DELAY = 500;
 const COUNT_RENDER_RANDOM = 10;
 
 const Filters = {
@@ -38,17 +38,15 @@ const switсhCurrentFilter = (current) => {
   current.classList.add('img-filters__button--active');
 };
 
-imgFilters.addEventListener('click', (evt) => {
+imgFilters.addEventListener('click', debounce((evt) => {
   const currentBtn = evt.target.closest('[type="button"]');
   if (currentBtn) {
     const currentFilterName = evt.target.id.split('-')[1].toUpperCase();
     currentFilter = Filters[currentFilterName];
     switсhCurrentFilter(currentBtn);
-    debounce(
-      () => renderPosts(currentFilter(originalData)),
-      RERENDER_DELAY,
-    )();
+    renderPosts(currentFilter(originalData));
   }
-});
+}, RERENDER_DELAY));
+
 
 export { showFilters };
