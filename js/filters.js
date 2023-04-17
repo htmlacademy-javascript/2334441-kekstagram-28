@@ -20,7 +20,7 @@ const Filters = {
     });
     return newLists;
   },
-  ISDISCUSSED: (array) => array.slice().sort(compareCommentsTotal)
+  ISDISCUSSED: (arrays) => arrays.slice().sort(compareCommentsTotal)
 };
 
 let currentFilter = Filters.ISDEFAULT;
