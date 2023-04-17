@@ -14,11 +14,13 @@ const renderPosts = (posts) => {
   picsContainer.querySelectorAll('.picture').forEach((pic) => pic.remove());
   const postFragment = document.createDocumentFragment();
 
-  posts.forEach(({ url, likes, comments }) => {
+  posts.forEach(({ url, likes, comments, id }) => {
     const picElement = picTemplate.cloneNode(true);
     picElement.querySelector('.picture__img').src = url;
     picElement.querySelector('.picture__likes').textContent = likes;
     picElement.querySelector('.picture__comments').textContent = comments.length;
+    picElement.querySelector('.picture__id').textContent = id;
+    picElement.querySelector('.picture__id').classList.add('hidden');
     postFragment.appendChild(picElement);
   });
 

@@ -9,21 +9,21 @@ const RERENDER_DELAY = 500;
 const COUNT_RENDER_RANDOM = 10;
 
 const Filters = {
-  DEFAULT: () => originalData,
-  RANDOM: (array) => {
-    const randomIds = getRandomNumsArray(COUNT_RENDER_RANDOM, array.length - 1);
-    const newList = [];
+  ISDEFAULT: () => originalData,
+  ISRANDOM: (arrays) => {
+    const randomIds = getRandomNumsArray(COUNT_RENDER_RANDOM, arrays.length - 1);
+    const newLists = [];
 
     randomIds.forEach((id) => {
-      const newEntry = array.find((entry) => entry.id === id);
-      newList.push(newEntry);
+      const newEntry = arrays.find((entry) => entry.id === id);
+      newLists.push(newEntry);
     });
-    return newList;
+    return newLists;
   },
-  DISCUSSED: (array) => array.slice().sort(compareCommentsTotal)
+  ISDISCUSSED: (arrays) => arrays.slice().sort(compareCommentsTotal)
 };
 
-let currentFilter = Filters.DEFAULT;
+let currentFilter = Filters.ISDEFAULT;
 
 const showFilters = () => imgFilters.classList.remove('img-filters--inactive');
 
@@ -38,17 +38,15 @@ const switсhCurrentFilter = (current) => {
   current.classList.add('img-filters__button--active');
 };
 
-imgFilters.addEventListener('click', (evt) => {
+imgFilters.addEventListener('click', debounce((evt) => {
   const currentBtn = evt.target.closest('[type="button"]');
   if (currentBtn) {
     const currentFilterName = evt.target.id.split('-')[1].toUpperCase();
     currentFilter = Filters[currentFilterName];
     switсhCurrentFilter(currentBtn);
-    debounce(
-      () => renderPosts(currentFilter(originalData)),
-      RERENDER_DELAY,
-    )();
+    renderPosts(currentFilter(originalData));
   }
-});
+}, RERENDER_DELAY));
+
 
 export { showFilters };

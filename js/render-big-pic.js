@@ -115,9 +115,15 @@ function closeBigPicture() {
 }
 
 pictures.addEventListener('click', (evt) => {
-  if(evt.target.closest('.picture')) {
+  if(evt.target.closest('.picture__img')) {
     const url = String(evt.target.src).slice(String(evt.target.src).indexOf('photos'));
-    const thisPost = postsList.filter((post) => post.url === url)[0];
+    const thisPost = postsList.find((post) => post.url === url);
+    commentsArray = thisPost.comments;
+    openBigPicture(thisPost);
+  } else if(evt.target.closest('.picture__info')) {
+    const id = evt.target.closest('.picture__info').querySelector('.picture__id').textContent;
+    const pictureId = parseInt(id, 10);
+    const thisPost = postsList.find((post) => post.id === pictureId);
     commentsArray = thisPost.comments;
     openBigPicture(thisPost);
   }
